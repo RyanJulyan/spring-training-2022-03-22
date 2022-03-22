@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: dummy
+      author: "Our Team"
+      sqlFile:
+        encoding: utf8
+        relativeToChangelogFile: true
+        path: "migrations/dummy.sql"
