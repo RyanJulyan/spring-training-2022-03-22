@@ -5,4 +5,4 @@ databaseChangeLog:
       sqlFile:
         encoding: utf8
         relativeToChangelogFile: true
-        path: "migrations/dummy.sql"
+        path: "migrations/v1.create_dummy_table.sql"
