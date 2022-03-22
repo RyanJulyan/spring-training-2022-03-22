@@ -21,13 +21,10 @@ public class DummyControllerTest {
     private EntityManager entityManager;
 
     @Test
-    public void givenRequestWithName_whenSubmittedToController_shouldPersistAndEchoBackName() {
+    public void givenRequestWithName_whenSubmittedToController_shouldPersistAndReturnGreeting() {
         // Setup fixture
         final String nameFixture = "Bob Hoskins";
-        final List<DummyEntity> dummiesBefore = entityManager
-                .createQuery("SELECT d FROM DummyEntity d WHERE d.name = :name ORDER BY d.id", DummyEntity.class)
-                .setParameter("name", nameFixture)
-                .getResultList();
+        final List<DummyEntity> dummiesBefore = findDummiesByNameOrderedById(nameFixture);
 
         // Setup expectations
         final String expected = "Hello Bob Hoskins!";
@@ -36,13 +33,19 @@ public class DummyControllerTest {
         final String actual = dummyController.submitName(nameFixture);
 
         // Verify results
-        final List<DummyEntity> dummiesAfter = entityManager
-                .createQuery("SELECT d FROM DummyEntity d WHERE d.name = :name ORDER BY d.id", DummyEntity.class)
-                .setParameter("name", nameFixture)
-                .getResultList();
+        // -> Assert Dummy entity was persisted
+        final List<DummyEntity> dummiesAfter = findDummiesByNameOrderedById(nameFixture);
         assertEquals(dummiesBefore.size()+1, dummiesAfter.size());
         assertEquals(dummiesAfter.get(dummiesAfter.size()-1).getName(), nameFixture);
 
+        // -> Assert greeting is as we expect
         assertEquals(actual, expected);
+    }
+
+    private List<DummyEntity> findDummiesByNameOrderedById(final String name) {
+        return entityManager
+                .createQuery("SELECT d FROM DummyEntity d WHERE d.name = :name ORDER BY d.id", DummyEntity.class)
+                .setParameter("name", name)
+                .getResultList();
     }
 }

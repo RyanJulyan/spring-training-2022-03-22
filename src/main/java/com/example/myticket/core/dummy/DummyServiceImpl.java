@@ -16,7 +16,9 @@ public class DummyServiceImpl implements DummyService {
     @Override
     public String submitName(String name) {
         DummyEntity dummy = entityFactory.create(name);
+
         dummy = repository.save(dummy);
+
         final String dummyName = dummy.getName();
         return GreetingUtil.formatNameAsGreeting(dummyName);
     }
