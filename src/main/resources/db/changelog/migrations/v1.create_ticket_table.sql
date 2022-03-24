@@ -1,0 +1,8 @@
+CREATE TABLE ticket(
+    id IDENTITY PRIMARY KEY NOT NULL,
+    uuid VARCHAR(MAX) NOT NULL,
+    category_id INT NOT NULL,
+    name VARCHAR(MAX) NOT NULL,
+    details VARCHAR(MAX) NOT NULL,
+    assignedTo VARCHAR(MAX) NOT NULL
+)

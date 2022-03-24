@@ -6,3 +6,17 @@ databaseChangeLog:
         encoding: utf8
         relativeToChangelogFile: true
         path: "migrations/v1.create_dummy_table.sql"
+  - changeSet:
+      id: category
+      author: "Our Team"
+      sqlFile:
+        encoding: utf8
+        relativeToChangelogFile: true
+        path: "migrations/v1.create_category_table.sql"
+  - changeSet:
+      id: ticket
+      author: "Our Team"
+      sqlFile:
+        encoding: utf8
+        relativeToChangelogFile: true
+        path: "migrations/v1.create_ticket_table.sql"

@@ -1,6 +1,5 @@
-package com.example.myticket.core.dummy;
+package com.example.myticket.model.dummy;
 
-import com.example.myticket.model.dummy.DummyEntity;
 import org.springframework.stereotype.Component;
 
 @Component

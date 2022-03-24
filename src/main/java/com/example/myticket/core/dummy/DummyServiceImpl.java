@@ -2,6 +2,7 @@ package com.example.myticket.core.dummy;
 
 import com.example.myticket.core.shared.util.GreetingUtil;
 import com.example.myticket.model.dummy.DummyEntity;
+import com.example.myticket.model.dummy.DummyEntityFactory;
 import com.example.myticket.model.dummy.DummyRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
